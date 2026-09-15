@@ -1,34 +1,6 @@
-import {
-  createServerClient,
-  parseCookieHeader,
-  serializeCookieHeader,
-} from "@supabase/ssr";
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
 
-export function createClient(request: Request) {
-  const headers = new Headers();
-
-  const supabase = createServerClient(
-    process.env.VITE_SUPABASE_URL!,
-    process.env.VITE_SUPABASE_PUBLISHABLE_KEY!,
-    {
-      cookies: {
-        getAll() {
-          return parseCookieHeader(request.headers.get("Cookie") ?? "") as {
-            name: string;
-            value: string;
-          }[];
-        },
-        setAll(cookiesToSet) {
-          cookiesToSet.forEach(({ name, value, options }) =>
-            headers.append(
-              "Set-Cookie",
-              serializeCookieHeader(name, value, options)
-            )
-          );
-        },
-      },
-    }
-  );
-
-  return { supabase, headers };
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
 }
