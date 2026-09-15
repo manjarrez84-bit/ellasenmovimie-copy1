@@ -3,7 +3,8 @@ import { useData } from 'vike-react/useData';
 import type { BlogPost } from '@/types';
 
 export default function Head() {
-  const { post } = useData<{ post: BlogPost }>();
+  const { post } = useData<{ post: BlogPost | null }>();
+  if (!post) return null;
   return (
     <SeoMeta
       title={`Editar: ${post.title}`}
