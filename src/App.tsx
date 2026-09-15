@@ -1,20 +1,26 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { ThemeProvider } from "./components/theme-provider";
+import { useState, useEffect } from 'react'
+import { supabase } from './utils/supabase'
 
-const queryClient = new QueryClient();
+export default function App() {
+  const [todos, setTodos] = useState([])
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <ThemeProvider defaultTheme="system" storageKey="vite-ui-theme">
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-      </TooltipProvider>
-    </ThemeProvider>
-  </QueryClientProvider>
-);
+  useEffect(() => {
+    async function getTodos() {
+      const { data: todos } = await supabase.from('todos').select()
 
-export default App;
+      if (todos) {
+        setTodos(todos)
+      }
+    }
+
+    getTodos()
+  }, [])
+
+  return (
+    <ul>
+      {todos.map((todo) => (
+        <li key={todo.id}>{todo.name}</li>
+      ))}
+    </ul>
+  )
+}
