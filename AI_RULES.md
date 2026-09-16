@@ -11,7 +11,19 @@
 - ALWAYS try to use the shadcn/ui library.
 - Tailwind CSS: always use Tailwind CSS for styling components. Utilize Tailwind classes extensively for layout, spacing, colors, and other design aspects.
 
-Available packages and libraries:
+# Code Modification Constraints
+
+**IMPORTANT: Do NOT modify the following files without explicit user permission:**
+
+- `src/components/layout/Header.tsx` - Header component
+- `src/components/forms/BlogPostForm.tsx` - Blog post form
+- Any `utils.ts` files
+- All files under `src/pages/admin/blog/` directory
+- All files under `src/pages/admin/dashboard/` directory
+
+These files are protected and should only be modified if the user explicitly requests changes to them.
+
+# Available packages and libraries
 
 - The lucide-react package is installed for icons.
 - You ALREADY have ALL the shadcn/ui components and their dependencies installed. So you don't need to install them again.
