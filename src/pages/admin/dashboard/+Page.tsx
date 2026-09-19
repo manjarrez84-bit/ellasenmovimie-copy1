@@ -152,6 +152,11 @@ const Page = () => {
               >
                 <Users className="inline h-4 w-4 mr-2" /> Usuarios
               </button>
+<a href="/admin/messages">
+  <button className="px-4 py-2 rounded-lg font-semibold bg-background text-foreground hover:bg-muted">
+    <Mail className="inline h-4 w-4 mr-2" /> Mensajes
+  </button>
+</a>
             </div>
           </div>
 
