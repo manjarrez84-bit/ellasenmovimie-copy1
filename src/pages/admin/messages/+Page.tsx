@@ -163,7 +163,7 @@ const Page = () => {
                   <CardContent>
                     <p className="text-foreground whitespace-pre-wrap">{msg.message}</p>
                     
-                      href={`mailto:${msg.email}?subject=Re: ${encodeURIComponent(msg.subject)}`}
+                     <a href={`mailto:${msg.email}?subject=Re: ${encodeURIComponent(msg.subject)}`}
                       className="inline-flex items-center gap-1 mt-4 text-sm text-primary hover:underline"
                     >
                       Responder por correo
