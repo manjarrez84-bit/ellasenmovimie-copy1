@@ -1,0 +1,319 @@
+diff --git a/src/components/ImpactStatsSection.tsx b/src/components/ImpactStatsSection.tsx
+index 896ba4d..bcb11db 100644
+--- a/src/components/ImpactStatsSection.tsx
++++ b/src/components/ImpactStatsSection.tsx
+@@ -19,8 +19,8 @@ const stats = [
+   },
+   {
+     icon: <Heart size={40} className="text-primary" />,
+-    value: "100%",
+-    label: "Compromiso"
++    value: "AMM",
++    label: "Monterrey y área metropolitana"
+   }
+ ];
+ 
+diff --git a/src/components/WhoWeAreSection.tsx b/src/components/WhoWeAreSection.tsx
+index e3ff3b6..477cd8a 100644
+--- a/src/components/WhoWeAreSection.tsx
++++ b/src/components/WhoWeAreSection.tsx
+@@ -44,7 +44,7 @@ const WhoWeAreSection = () => {
+                 <div className="flex items-start space-x-4">
+                   <Lightbulb className="text-primary mt-1" size={24} />
+                   <p className="text-foreground text-balance text-left">
+-                    Ser una fuerza transformadora y generadora de respuestas para un avance significativo en el desarrollo integral de Ellas habiendo logrado su empoderamiento.
++                    Que las niñas y mujeres de Nuevo León tengan asesoría, red y oficio suficientes para decidir sobre su vida, su ingreso y su comunidad, sin que la violencia o la pobreza las saquen del espacio público.
+                   </p>
+                 </div>
+               </TabsContent>
+@@ -64,7 +64,7 @@ const WhoWeAreSection = () => {
+         </div>
+         <div className="max-w-4xl mx-auto mt-8 p-6 bg-muted/50 rounded-lg">
+           <p className="text-lg text-foreground text-justify text-balance">
+-            Los objetivos institucionales de Ellas en Movimiento suelen centrarse en la promoción de la igualdad de género y los derechos humanos de las mujeres, niñas y adolescentes, esto incluye la erradicación de la violencia de género, el empoderamiento económico y social, la promoción de la participación ciudadana y política, y el desarrollo de capacidades a través de procesos de aprendizaje de capacitación y sensibilización en temas trascendentes para Ellas. 
++            Ellas en Movimiento, A.C. cumple 17 años en Monterrey. Trabajamos para detonar capacidades de niñas y mujeres de la entidad: legal, emocional, económica y comunitaria. Operamos desde Porfirio Díaz 426 Nte., Col. Centro. Promovemos la igualdad de género, la erradicación de la violencia, el empoderamiento económico y la participación ciudadana. 
+           </p>
+           <p className="text-lg font-semibold text-primary mb-3 text-balance">
+             Y las diversas actividades de sostenibilidad de Ellas en Movimiento van encaminadas a: 
+diff --git a/src/components/forms/DonationForm.tsx b/src/components/forms/DonationForm.tsx
+index eb44280..699bc49 100644
+--- a/src/components/forms/DonationForm.tsx
++++ b/src/components/forms/DonationForm.tsx
+@@ -57,13 +57,20 @@ const DonationForm = () => {
+         <Heart className="mx-auto h-12 w-12 text-primary mb-4" />
+         <h3 className="text-2xl font-bold text-primary mb-2">¡Muchas Gracias por tu Apoyo!</h3>
+         <p className="text-foreground mb-4">
+-          Hemos registrado tu intención de donar ${finalAmount.toFixed(2)} MXN. Para completar tu donación, por favor, realiza una transferencia a la siguiente cuenta:
++          Registramos tu intención de donar ${finalAmount.toFixed(2)} MXN. Para completar el depósito te enviamos los datos bancarios reales por WhatsApp o correo. No uses CLABE publicada en capturas antiguas del sitio.
+         </p>
+-        <div className="text-left bg-background p-4 rounded-md">
+-          <p><strong>Banco:</strong> BBVA México</p>
++        <div className="text-left bg-background p-4 rounded-md space-y-2">
++          <p><strong>WhatsApp:</strong> +52 81 1266 4221</p>
++          <p><strong>Correo:</strong> contacto@ellasenmovimiento.org</p>
+           <p><strong>A nombre de:</strong> Ellas en Movimiento, A.C.</p>
+-          <p><strong>CLABE:</strong> 012345678901234567</p>
+-          <p><strong>Concepto:</strong> Donación {form.getValues("name")}</p>
++          <a
++            className="inline-block text-primary underline"
++            href={`https://wa.me/528112664221?text=${encodeURIComponent(`Hola, registré una intención de donar ${finalAmount} MXN a Ellas en Movimiento.`)}`}
++            target="_blank"
++            rel="noopener noreferrer"
++          >
++            Abrir WhatsApp para recibir la CLABE
++          </a>
+         </div>
+         <Button onClick={() => setIsSubmitted(false)} className="mt-6">Hacer otra donación</Button>
+       </div>
+@@ -109,7 +116,7 @@ const DonationForm = () => {
+         {form.formState.errors.email && <p className="text-destructive text-sm mt-1">{form.formState.errors.email.message}</p>}
+       </div>
+       <Button type="submit" size="lg" className="w-full" disabled={form.formState.isSubmitting}>
+-        {form.formState.isSubmitting ? "Procesando..." : "Registrar Donación"}
++        {form.formState.isSubmitting ? "Registrando..." : "Registrar intención de donar"}
+       </Button>
+     </form>
+   );
+diff --git a/src/components/layout/Footer.tsx b/src/components/layout/Footer.tsx
+index ef6294f..77a9221 100644
+--- a/src/components/layout/Footer.tsx
++++ b/src/components/layout/Footer.tsx
+@@ -35,7 +35,7 @@ const Footer = () => {
+               <li><Link to="/about" className="hover:underline text-balance">Nosotras</Link></li>
+               <li><Link to="/programs" className="hover:underline text-balance">Programas</Link></li>
+               <li><Link to="/blog" className="hover:underline text-balance">Blog</Link></li>
+-              <li><Link to="/forum" className="hover:underline text-balance">Foro</Link></li>
++              <li><Link to="/how-to-help" className="hover:underline text-balance">Cómo ayudar</Link></li>
+               <li><Link to="/faq" className="hover:underline text-balance">FAQ</Link></li>
+               <li><Link to="/contact" className="hover:underline text-balance">Contacto</Link></li>
+             </ul>
+diff --git a/src/components/layout/Header.tsx b/src/components/layout/Header.tsx
+index fba5edb..6c28e67 100644
+--- a/src/components/layout/Header.tsx
++++ b/src/components/layout/Header.tsx
+@@ -11,7 +11,6 @@ const navItems = [
+   { href: '/about', label: 'Nosotras' },
+   { href: '/programs', label: 'Programas' },
+   { href: '/blog', label: 'Blog' },
+-  { href: '/forum', label: 'Foro' },
+   { href: '/how-to-help', label: 'Cómo Ayudar' },
+   { href: '/faq', label: 'FAQ' },
+   { href: '/contact', label: 'Contacto' },
+diff --git a/src/pages/+Page.tsx b/src/pages/+Page.tsx
+index 1fa90ef..89c5f1c 100644
+--- a/src/pages/+Page.tsx
++++ b/src/pages/+Page.tsx
+@@ -8,7 +8,6 @@ import AnimatedSection from "@/components/AnimatedSection";
+ import Link from "@/components/Link";
+ import ContactSection from "@/components/ContactSection";
+ import { Button } from "@/components/ui/button";
+-import { Shield } from "lucide-react";
+ 
+ const Page = () => {
+   return (
+@@ -34,12 +33,12 @@ const Page = () => {
+                   <p className="text-sm text-foreground mt-1">años de servicio</p>
+                 </div>
+                 <div>
+-                  <p className="text-4xl font-extrabold text-primary">[X]</p>
+-                  <p className="text-sm text-foreground mt-1">mujeres y niñas atendidas</p>
++                  <p className="text-4xl font-extrabold text-primary">+5,000</p>
++                  <p className="text-sm text-foreground mt-1">mujeres y niñas acompañadas</p>
+                 </div>
+                 <div>
+-                  <p className="text-4xl font-extrabold text-primary">[X]</p>
+-                  <p className="text-sm text-foreground mt-1">comunidades alcanzadas</p>
++                  <p className="text-4xl font-extrabold text-primary">AMM</p>
++                  <p className="text-sm text-foreground mt-1">Monterrey y área metropolitana</p>
+                 </div>
+               </div>
+             </div>
+@@ -54,18 +53,22 @@ const Page = () => {
+               <p className="max-w-2xl mx-auto mb-8 text-balance">
+                 Cada donativo impulsa directamente nuestros programas de asesoría legal, apoyo psicológico y talleres productivos.
+               </p>
+-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto mb-8">
++              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8">
+                 <div className="bg-primary-foreground/10 rounded-lg p-4">
+-                  <p className="text-xl font-bold">$200</p>
++                  <p className="text-xl font-bold">$100</p>
+                   <p className="text-xs mt-1">Materiales de un taller</p>
+                 </div>
++                <div className="bg-primary-foreground/10 rounded-lg p-4">
++                  <p className="text-xl font-bold">$250</p>
++                  <p className="text-xs mt-1">Una sesión de apoyo psicológico</p>
++                </div>
+                 <div className="bg-primary-foreground/10 rounded-lg p-4">
+                   <p className="text-xl font-bold">$500</p>
+-                  <p className="text-xs mt-1">Una sesión de asesoría legal</p>
++                  <p className="text-xs mt-1">Una asesoría legal</p>
+                 </div>
+                 <div className="bg-primary-foreground/10 rounded-lg p-4">
+                   <p className="text-xl font-bold">$1,000</p>
+-                  <p className="text-xs mt-1">Apoyo psicológico por un mes</p>
++                  <p className="text-xs mt-1">Un mes de capacitación</p>
+                 </div>
+               </div>
+               <Link to="/donate">
+@@ -170,25 +173,6 @@ const Page = () => {
+           </section>
+         </AnimatedSection>
+ 
+-        {/* Acceso Administrativo */}
+-        <section className="py-8 bg-muted/40 border-t border-border">
+-          <div className="container mx-auto px-4 text-center">
+-            <div className="max-w-md mx-auto p-6 bg-card rounded-xl border shadow-sm flex flex-col items-center">
+-              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-3">
+-                <Shield className="w-6 h-6" />
+-              </div>
+-              <h3 className="text-lg font-semibold text-foreground mb-1">Acceso Administrativo</h3>
+-              <p className="text-xs text-muted-foreground mb-4">Panel exclusivo para gestión de contenido, publicaciones y usuarios</p>
+-              <Link to="/admin/dashboard" className="w-full sm:w-auto">
+-                <Button variant="outline" className="w-full sm:w-auto border-primary/30 hover:bg-primary hover:text-primary-foreground transition-colors gap-2">
+-                  <Shield className="w-4 h-4" />
+-                  Ir al Dashboard de Administración
+-                </Button>
+-              </Link>
+-            </div>
+-          </div>
+-        </section>
+-
+       </main>
+       <Footer />
+       <AttributionFooter />
+diff --git a/src/pages/faq/+Page.tsx b/src/pages/faq/+Page.tsx
+index c5bb79e..79d93cd 100644
+--- a/src/pages/faq/+Page.tsx
++++ b/src/pages/faq/+Page.tsx
+@@ -7,12 +7,30 @@ import { AttributionFooter } from '@/components/AttributionFooter';
+ 
+ const Page = () => {
+   const faqs = [
+-    { question: "¿Qué tipo de ayuda ofrecen?", answer: "Ofrecemos un apoyo integral que incluye asesoría legal gratuita, apoyo psicológico, talleres de capacitación laboral, y programas educativos sobre derechos y prevención de la violencia." },
+-    { question: "¿Sus servicios tienen algún costo?", answer: "No, todos nuestros servicios son completamente gratuitos para las mujeres que los necesitan." },
+-    { question: "¿Cómo puedo recibir ayuda de la organización?", answer: "Puedes ponerte en contacto con nosotras a través de nuestro formulario de contacto, por correo electrónico o por teléfono." },
+-    { question: "No vivo en Monterrey ¿pueden ayudarme?", answer: "Aunque nuestra sede principal está en MTY, ofrecemos algunos servicios de orientación y apoyo de forma remota." },
+-    { question: "¿Cómo se utilizan las donaciones?", answer: "El 100% de las donaciones se destina directamente a nuestros programas: pago de honorarios de especialistas, materiales para talleres, apoyo para transporte y mantenimiento de instalaciones." },
+-    { question: "No soy profesional en derecho o psicología, ¿aún puedo ser voluntario?", answer: "¡Claro que sí! Hay muchas formas de ayudar. Tu tiempo y talento son muy valiosos." }
++    {
++      question: "¿Qué tipo de ayuda ofrecen?",
++      answer: "Asesoría y acompañamiento en trámites legales (violencia de género y derechos civiles), apoyo psicológico y gestión de emociones, talleres de oficios y plan de empresa, educación y sensibilización, fortalecimiento comunitario, distribución de alimentos (REDPARADAHR) y talleres ambientales EDUCAM. No somos ministerio público ni un refugio 24 horas. Si tu vida corre peligro, llama al 911 y, en paralelo, contáctanos para lo que sí está en nuestro alcance."
++    },
++    {
++      question: "¿Sus servicios tienen algún costo?",
++      answer: "La orientación legal y el acompañamiento a mujeres en situación de vulnerabilidad se ofrecen sin costo para la beneficiaria. Los talleres productivos pueden pedir una cuota de recuperación solo para materiales; se informa antes de inscribirse. Nadie se queda fuera por no poder cubrir esa cuota."
++    },
++    {
++      question: "¿Cómo puedo recibir ayuda de la organización?",
++      answer: "WhatsApp +52 81 1266 4221 (respuesta más rápida), teléfonos +52 81 8374 1257 y +52 81 3714 2927, correo contacto@ellasenmovimiento.org o en Porfirio Díaz 426 Nte., Col. Centro, Monterrey. En el primer contacto pide solo lo necesario para canalizarte; no cuentes el caso completo por chat si no estás en un lugar seguro."
++    },
++    {
++      question: "No vivo en Monterrey ¿pueden ayudarme?",
++      answer: "La atención presencial está en el Centro de Monterrey. Si estás en otro municipio o estado, te orientamos y, cuando sea posible, te canalizamos a una organización de tu localidad."
++    },
++    {
++      question: "¿Cómo se utilizan las donaciones?",
++      answer: "Financian materiales de taller, sesiones de apoyo psicológico, asesorías legales, despensas de REDPARADAHR y operación de la A.C. Referencia: $100 materiales, $250 una sesión psicológica, $500 una asesoría legal, $1,000 un mes de capacitación. Hoy el formulario registra la intención; la transferencia se confirma por WhatsApp o correo."
++    },
++    {
++      question: "No soy profesional en derecho o psicología, ¿aún puedo ser voluntario?",
++      answer: "Sí. Se necesitan apoyos en logística de talleres, recepción, comunicación, captura y EDUCAM. El voluntariado con sobrevivientes de violencia requiere inducción y acuerdo de confidencialidad."
++    }
+   ];
+ 
+   return (
+diff --git a/src/pages/how-to-help/+Page.tsx b/src/pages/how-to-help/+Page.tsx
+index c0113c1..844867a 100644
+--- a/src/pages/how-to-help/+Page.tsx
++++ b/src/pages/how-to-help/+Page.tsx
+@@ -8,8 +8,10 @@ import { HandHeart, DollarSign, Users, Facebook, Twitter } from 'lucide-react';
+ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+ import { AttributionFooter } from '@/components/AttributionFooter';
+ 
++const CANONICAL_URL = "https://ellasenmovimiento.org";
++
+ const Page = () => {
+-  const shareUrl = window.location.origin;
++  const shareUrl = CANONICAL_URL;
+   const shareText = "Apoya a Ellas en Movimiento, A.C. #EllasEnMovimiento";
+   const facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+   const twitterShareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`;
+@@ -19,22 +21,23 @@ const Page = () => {
+         <Header />
+       <main className="flex-grow">
+         <section className="relative py-16 pt-32 bg-muted/30 text-center overflow-hidden">
+-          <img src="/voluntariado.png" alt="Fondo de voluntariado" className="absolute inset-0 w-full h-full object-cover opacity-20 dark:opacity-10" />
++          <img src="/voluntariado.png" alt="" className="absolute inset-0 w-full h-full object-cover opacity-20 dark:opacity-10" />
+           <div className="relative z-10 container mx-auto px-4">
+-            <h1 className="text-4xl font-bold text-primary mb-8 text-balance">Cómo Puedes Ayudar</h1>
+-            <p className="text-lg text-foreground mb-12 max-w-3xl mx-auto text-balance">Tu apoyo es fundamental.</p>
++            <h1 className="text-4xl font-bold text-primary mb-8 text-balance">Cómo puedes ayudar</h1>
++            <p className="text-lg text-foreground mb-4 max-w-3xl mx-auto text-balance">Hay cuatro formas de sumarse. Elige una. No hace falta hacer las cuatro.</p>
++            <p className="text-sm text-muted-foreground mb-12 max-w-2xl mx-auto text-balance">Si tú necesitas ayuda, no uses esta página: ve a Contacto o escribe por WhatsApp al +52 81 1266 4221.</p>
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+               <Card className="p-6 shadow-lg bg-background/80 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                 <CardHeader className="flex flex-col items-center"><DollarSign className="text-primary mb-4" size={40} /><CardTitle className="text-2xl font-semibold mb-2 text-balance">Haz una Donación</CardTitle></CardHeader>
+-                <CardContent className="text-foreground text-balance">Cada contribución económica nos permite mantener nuestros programas.<div className="mt-6"><Link to="/donate"><Button>Donar Ahora</Button></Link></div></CardContent>
++                <CardContent className="text-foreground text-balance">Materiales de taller, asesoría legal, apoyo psicológico y despensas de REDPARADAHR.<div className="mt-6"><Link to="/donate"><Button>Donar ahora</Button></Link></div></CardContent>
+               </Card>
+               <Card className="p-6 shadow-lg bg-background/80 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+-                <CardHeader className="flex flex-col items-center"><HandHeart className="text-primary mb-4" size={40} /><CardTitle className="text-2xl font-semibold mb-2 text-balance">Sé Voluntario</CardTitle></CardHeader>
+-                <CardContent className="text-foreground text-balance">Ofrece tu tiempo y tus habilidades.<div className="mt-6"><Link to="/volunteer"><Button>Quiero Ser Voluntario</Button></Link></div></CardContent>
++                <CardHeader className="flex flex-col items-center"><HandHeart className="text-primary mb-4" size={40} /><CardTitle className="text-2xl font-semibold mb-2 text-balance">Sé voluntaria o voluntario</CardTitle></CardHeader>
++                <CardContent className="text-foreground text-balance">Logística, comunicación, EDUCAM y recepción. El acompañamiento de casos de violencia requiere inducción.<div className="mt-6"><Link to="/volunteer"><Button>Quiero ser voluntaria</Button></Link></div></CardContent>
+               </Card>
+               <Card className="p-6 shadow-lg bg-background/80 backdrop-blur-sm transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                 <CardHeader className="flex flex-col items-center"><Users className="text-primary mb-4" size={40} /><CardTitle className="text-2xl font-semibold mb-2 text-balance">Difunde Nuestra Causa</CardTitle></CardHeader>
+-                <CardContent className="text-foreground text-balance">Ayúdanos a crear conciencia.<div className="mt-6 flex justify-center space-x-4">
++                <CardContent className="text-foreground text-balance">Comparte el sitio y los teléfonos. No publiques fotos ni relatos identificables de quien pide ayuda.<div className="mt-6 flex justify-center space-x-4">
+                   <a href={facebookShareUrl} target="_blank" rel="noopener noreferrer" aria-label="Compartir en Facebook"><Button variant="outline" size="icon"><Facebook className="h-5 w-5" /></Button></a>
+                   <a href={twitterShareUrl} target="_blank" rel="noopener noreferrer" aria-label="Compartir en Twitter"><Button variant="outline" size="icon"><Twitter className="h-5 w-5" /></Button></a>
+                 </div></CardContent>
+diff --git a/src/pages/nosotras/+Head.tsx b/src/pages/nosotras/+Head.tsx
+new file mode 100644
+index 0000000..8d4007a
+--- /dev/null
++++ b/src/pages/nosotras/+Head.tsx
+@@ -0,0 +1,11 @@
++import SeoMeta from '@/components/SeoMeta';
++
++export default function Head() {
++  return (
++    <SeoMeta
++      title="Nosotras"
++      description="Misión, visión y trabajo de Ellas en Movimiento, A.C. en Monterrey."
++      path="/nosotras"
++    />
++  );
++}
+diff --git a/src/pages/nosotras/+Page.tsx b/src/pages/nosotras/+Page.tsx
+new file mode 100644
+index 0000000..b9dc138
+--- /dev/null
++++ b/src/pages/nosotras/+Page.tsx
+@@ -0,0 +1,24 @@
++"use client";
++
++import Header from '@/components/layout/Header';
++import Footer from '@/components/layout/Footer';
++import { AttributionFooter } from '@/components/AttributionFooter';
++import ImpactStatsSection from '@/components/ImpactStatsSection';
++import WhoWeAreSection from '@/components/WhoWeAreSection';
++
++const Page = () => {
++  return (
++    <div className="flex flex-col min-h-screen">
++      <Header />
++      <main className="flex-grow">
++        <h1 className="sr-only">Nosotras — Ellas en Movimiento, A.C.</h1>
++        <WhoWeAreSection />
++        <ImpactStatsSection />
++      </main>
++      <Footer />
++      <AttributionFooter />
++    </div>
++  );
++};
++
++export default Page;
+\ No newline at end of file
