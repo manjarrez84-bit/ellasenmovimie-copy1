@@ -108,13 +108,11 @@ const Page = () => {
         {/* Quiénes somos (versión corta) + foto de la fundadora */}
         <AnimatedSection>
           <section className="py-16 bg-background">
-            <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl">
-              <img src="/ellas333.png" alt="Imagen de la Fundadora" className="mx-auto w-full max-w-md h-auto rounded-lg shadow-lg" />
-              <div>
-                <Link to="/programs">
-                  <Button variant="outline" className="mt-6">Conoce todos nuestros programas</Button>
-                </Link>
-              </div>
+            <div className="container mx-auto px-4 flex flex-col items-center gap-6 max-w-5xl">
+              <img src="/ellas333.png" alt="Imagen de la Fundadora" className="w-full max-w-3xl h-auto rounded-lg shadow-lg" />
+              <Link to="/programs">
+                <Button variant="outline" className="mt-2">Conoce todos nuestros programas</Button>
+              </Link>
             </div>
           </section>
         </AnimatedSection>
