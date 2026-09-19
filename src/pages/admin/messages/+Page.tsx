@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { toast } from 'sonner';
-import { Mail, MailOpen, ArrowLeft } from 'lucide-react';
+import { Mail, MailOpen, ArrowLeft, ArrowRight } from 'lucide-react';
 import { getCurrentUser } from '@/services/forumService';
 import { getUserProfile } from '@/services/profileService';
 import { getContactMessages, markMessageResponded, ContactMessage } from '@/services/contactService';
@@ -164,9 +164,10 @@ const Page = () => {
                     <p className="text-foreground whitespace-pre-wrap">{msg.message}</p>
                     
                       href={`mailto:${msg.email}?subject=Re: ${encodeURIComponent(msg.subject)}`}
-                      className="inline-block mt-4 text-sm text-primary hover:underline"
+                      className="inline-flex items-center gap-1 mt-4 text-sm text-primary hover:underline"
                     >
-                      {'Responder por correo →'}
+                      Responder por correo
+                      <ArrowRight className="h-3 w-3" />
                     </a>
                   </CardContent>
                 </Card>
