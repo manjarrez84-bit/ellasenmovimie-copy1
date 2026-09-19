@@ -110,14 +110,7 @@ const Page = () => {
           <section className="py-16 bg-background">
             <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-8 items-center max-w-5xl">
               <img src="/ellas333.png" alt="Imagen de la Fundadora" className="mx-auto w-full max-w-md h-auto rounded-lg shadow-lg" />
-              <div className="text-center md:text-left">
-                <p className="text-lg text-foreground text-balance">
-                  Somos una organización de mujeres sin fines de lucro con 17 años impulsando a mujeres y niñas de Monterrey a tomar las riendas de su vida — a través de asesoría legal, apoyo psicológico y talleres que generan ingreso propio.
-                </p>
-                <p className="text-lg text-foreground mt-4 text-balance">
-                  Creemos que cuando una mujer se fortalece, toda su comunidad avanza con ella.
-                </p>
-                <Link to="/programs">
+                            <Link to="/programs">
                   <Button variant="outline" className="mt-6">Conoce todos nuestros programas</Button>
                 </Link>
               </div>
