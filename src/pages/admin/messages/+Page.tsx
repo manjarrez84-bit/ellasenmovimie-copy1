@@ -30,7 +30,6 @@ const Page = () => {
       const profile = await getUserProfile(user.id);
       if (!profile || profile.role !== 'admin') {
         setLoading(false);
-
         return;
       }
       setAuthorized(true);
@@ -64,7 +63,6 @@ const Page = () => {
     }
   };
 
-
   const filteredMessages = messages.filter(m => {
     if (filter === 'pending') return !m.responded;
     if (filter === 'responded') return m.responded;
@@ -96,7 +94,6 @@ const Page = () => {
         <main className="flex-grow py-24 bg-muted/30">
           <div className="container mx-auto px-4 text-center">
             <h1 className="text-4xl font-bold text-primary mb-4 text-balance">Acceso Denegado</h1>
-
             <a href="/"><Button>Volver al Inicio</Button></a>
           </div>
         </main>
@@ -129,7 +126,6 @@ const Page = () => {
             >
               Respondidos
             </button>
-
             <button
               onClick={() => setFilter('all')}
               className={`px-4 py-2 rounded-lg text-sm font-semibold ${filter === 'all' ? 'bg-primary text-primary-foreground' : 'bg-background border'}`}
@@ -162,7 +158,6 @@ const Page = () => {
                     >
                       {msg.responded ? <MailOpen className="h-4 w-4" /> : <Mail className="h-4 w-4" />}
                       {msg.responded ? 'Respondido' : 'Marcar respondido'}
-
                     </Button>
                   </CardHeader>
                   <CardContent>
@@ -171,7 +166,7 @@ const Page = () => {
                       href={`mailto:${msg.email}?subject=Re: ${encodeURIComponent(msg.subject)}`}
                       className="inline-block mt-4 text-sm text-primary hover:underline"
                     >
-                      Responder por correo →
+                      {'Responder por correo →'}
                     </a>
                   </CardContent>
                 </Card>
