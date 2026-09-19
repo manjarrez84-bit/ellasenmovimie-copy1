@@ -136,7 +136,7 @@ const Page = () => {
 
           {filteredMessages.length === 0 ? (
             <div className="text-center py-16 bg-card rounded-lg shadow">
-              <p className="text-lg text-foreground">No hay mensajes en esta categoría.</p>
+              <p className="text-lg text-foreground">No hay mensajes en esta categoria.</p>
             </div>
           ) : (
             <div className="space-y-4">
@@ -145,7 +145,7 @@ const Page = () => {
                   <CardHeader className="flex flex-row items-start justify-between space-y-0 pb-2">
                     <div>
                       <CardTitle className="text-lg text-primary">{msg.subject}</CardTitle>
-                      <p className="text-sm text-foreground mt-1">{msg.name} • {msg.email}</p>
+                      <p className="text-sm text-foreground mt-1">{msg.name} - {msg.email}</p>
                       <p className="text-xs text-muted-foreground">
                         {new Date(msg.created_at).toLocaleString('es-MX')}
                       </p>
