@@ -17,19 +17,9 @@ const Page = () => {
       <h1 className="sr-only">Ellas en Movimiento, A.C. — Empoderando a mujeres en Monterrey</h1>
       <Header />
       <main className="flex-grow pt-24">
-        <section className="py-12 bg-muted/30">
-          <div className="container mx-auto px-4 text-center">
-            <img src="/ellas2.png" alt="Ellas en Movimiento A.C. - Introducción" className="mx-auto w-full h-auto" />
-          </div>
-        </section>
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4 text-center">
             <img src="/ellas.png" alt="Animación Ellas en Movimiento" className="mx-auto w-full max-w-4xl h-auto rounded-lg shadow-lg" />
-          </div>
-        </section>
-        <section className="py-12 bg-background">
-          <div className="container mx-auto px-4 text-center">
-            <img src="/ellas333.png" alt="Imagen de la Fundadora" className="mx-auto w-full max-w-4xl h-auto" />
           </div>
         </section>
         
