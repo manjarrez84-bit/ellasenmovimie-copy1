@@ -128,7 +128,7 @@ const Page = () => {
         {/* Animación/galería */}
         <section className="py-12 bg-muted/30">
           <div className="container mx-auto px-4 text-center">
-            <img src="/ellas.png" alt="Animación Ellas en Movimiento" className="mx-auto w-full max-w-4xl h-auto rounded-lg shadow-lg" />
+            <img src="/ellas.gif" alt="Animación Ellas en Movimiento" className="mx-auto w-full max-w-4xl h-auto rounded-lg shadow-lg" />
           </div>
         </section>
 
